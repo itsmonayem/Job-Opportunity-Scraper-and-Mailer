@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if message is defined %}
+<div class="alert alert-warning alert-dismissible fade show container" role="alert">
+  {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="container css-show">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sno</th>
+            <th scope="col">Name</th>
+            <th scope="col">Skill</th>
+            <th scope="col">Email</th>
+            <th scope="col">Created Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for task in allTasks %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{task.name}}</td>
+                <td>{{task.skill}}</td>
+                <td>{{task.email}}</td>
+                <td>{{task.date_created}}</td>
+                <td><a href="/cancel/{{task.id}}" type="button" class="btn btn-dark">Terminate</a></td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

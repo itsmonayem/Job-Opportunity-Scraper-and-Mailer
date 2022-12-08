@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if message is defined %}
+<div class="alert alert-primary alert-dismissible fade show container" role="alert">
+  {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<form class="row g-3 resize" action="/scheduled" method="POST">
+  <div class="col-12">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" name="Name" required>
+  </div>
+  <div class="col-12">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" required>
+  </div>
+  <div class="col-12">
+    <label class="form-label">Your Skills</label>
+    <input type="text" class="form-control" name="skills" placeholder="skill1, skill2, skill3, ...." required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Unfamiliar Skills</label>
+    <input type="text" class="form-control" name="unf_skills" placeholder="skill1, skill2, skill3, ....">
+  </div>
+  <div class="col-md-5">
+      <label class="form-label">Location</label>
+      <input type="text" class="form-control" name="location">
+    </div>
+  <div class="col-md-3">
+    <label class="form-label">Day</label>
+    <input type="number" min="0" class="form-control" name="day">
+  </div>
+  <div class="col-md-2">
+      <label class="form-label">Hour</label>
+      <input type="number" min="0" class="form-control" name="hour">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Minute</label>
+    <input type="number" min="0" class="form-control" name="minute">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endblock %}
